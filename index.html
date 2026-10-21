@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>식품의약품안전처 (MFDS) - 국민 안심이 기준입니다</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts & Pretendard -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            mfds: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            bluegov: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#0c4a6e',
+              900: '#082f49'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .badge-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .6; }
+    }
+    /* 카드 호버 효과 */
+    .feature-card {
+      transition: all 0.25s ease-in-out;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Top Emergency / Notice Bar -->
+  <aside aria-label="긴급 공지사항" class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white text-xs sm:text-sm py-2 px-4 shadow-inner">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/30 text-emerald-200 border border-emerald-400/40">
+          <i data-lucide="shield-alert" class="w-3.5 h-3.5 mr-1"></i> 국민안심 소통
+        </span>
+        <span class="text-slate-200 font-medium truncate">안전한 먹거리와 믿을 수 있는 의약품, 대한민국 식약처가 24시간 함께합니다.</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs text-slate-300">
+        <a href="tel:1577-1255" class="hover:text-white flex items-center gap-1 transition">
+          <i data-lucide="phone-call" class="w-3 h-3 text-emerald-400"></i> 종합상담 1577-1255
+        </a>
+        <span class="hidden sm:inline">|</span>
+        <a href="tel:1399" class="hover:text-amber-300 text-amber-200 flex items-center gap-1 font-semibold transition">
+          <i data-lucide="alert-triangle" class="w-3 h-3"></i> 불량식품 신고 1399
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center text-white shadow-md shadow-emerald-700/20 group-hover:scale-105 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">식품의약품안전처</span>
+              <span class="text-xs px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded-full">MFDS</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium">Ministry of Food and Drug Safety</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="#about" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 rounded-lg transition">기관소개</a>
+          <a href="#roles" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 rounded-lg transition">주요 업무</a>
+          <a href="#matcher" class="px-3 py-2 text-sm font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100/80 rounded-lg transition flex items-center gap-1">
+            <i data-lucide="sparkles" class="w-4 h-4"></i> 맞춤 혜택 찾기
+          </a>
+          <a href="#trends" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 rounded-lg transition">정책 동향</a>
+          <a href="#news" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 rounded-lg transition">보도·뉴스</a>
+          <a href="#services" class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60 rounded-lg transition">참여서비스</a>
+        </nav>
+
+        <!-- Quick Action & Official Portal Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-sm hover:shadow transition">
+            식약처 공식포털 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" aria-label="메뉴 열기/닫기" class="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 pt-2 pb-4 space-y-1">
+      <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">기관소개</a>
+      <a href="#roles" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">주요 업무</a>
+      <a href="#matcher" class="block px-3 py-2 rounded-md text-base font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100">✨ 맞춤 혜택 & 서비스 찾기</a>
+      <a href="#trends" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">핵심 정책 동향</a>
+      <a href="#news" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">최신 보도·뉴스</a>
+      <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">국민 참여서비스</a>
+      <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="block mt-2 text-center w-full px-4 py-2.5 text-sm font-bold text-white bg-emerald-600 rounded-lg">식약처 공식포털 방문</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="relative overflow-hidden bg-gradient-to-b from-emerald-900 via-teal-900 to-slate-900 text-white py-16 sm:py-24 lg:py-28">
+      <!-- Background Shapes -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 badge-pulse"></span>
+            대한민국 보건안전의 중심 · 국무총리 산하 중앙행정기관
+          </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight sm:leading-tight mb-6">
+            안전한 식의약,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-cyan-200">
+              건강한 국민, 행복한 사회
+            </span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed font-normal">
+            식품의약품안전처는 먹거리부터 의약품, 의료기기, 화장품까지 국민의 일상 건강과 안전을 책임집니다. 
+            첨단 과학 기반의 안전망과 혁신 규제로 세계 최고 수준의 안심 일상을 완성합니다.
+          </p>
+
+          <!-- Quick Actions in Hero -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+            <a href="#matcher" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-emerald-500/30 transition-all flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-emerald-950"></i> 나에게 맞는 식약처 도움 찾기 (설문)
+            </a>
+            <a href="#roles" class="px-5 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-white font-semibold text-sm sm:text-base backdrop-blur transition-all flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-emerald-400"></i> 주요 업무 보기
+            </a>
+          </div>
+
+          <!-- Hero Highlights / Counter -->
+          <div class="mt-12 pt-8 border-t border-slate-700/60 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-slate-300">
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-white">5,100만+</p>
+              <p class="text-xs text-slate-400 mt-1">대한민국 국민 일상 안전</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-emerald-300">4대 안전망</p>
+              <p class="text-xs text-slate-400 mt-1">식품·의약품·의료기기·화장품</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-teal-300">AI 스마트검사</p>
+              <p class="text-xs text-slate-400 mt-1">수입식품 24시간 자동 예측</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-cyan-300">글로벌 톱</p>
+              <p class="text-xs text-slate-400 mt-1">WHO 우수규제기관(WLA) 등재</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: About MFDS (기관소개 및 비전) -->
+    <section id="about" class="py-16 sm:py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-emerald-700 font-bold text-xs sm:text-sm tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">About MFDS</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-3 sm:text-4xl">식품의약품안전처란?</h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base">
+            대한민국 헌법 제36조에 명시된 국민보건 안전을 실현하기 위해 설립된 중앙행정기관입니다.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Card 1: 비전 및 미션 -->
+          <div class="bg-gradient-to-br from-emerald-50/70 to-teal-50/40 p-8 rounded-2xl border border-emerald-100 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-6 shadow-md shadow-emerald-600/20">
+                <i data-lucide="compass" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">설립 목적 & 미션</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                식품 및 의약품 등의 안전관리에 관한 사무를 관장하여 위해물질로부터 국민의 건강을 보호하고, 안전한 제품 유통 환경을 조성합니다.
+              </p>
+              <ul class="text-xs sm:text-sm text-slate-700 space-y-2">
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 국민이 안심할 수 있는 먹거리 보장
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 안전하고 효과적인 의약품 신속 공급
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> 바이오헬스 산업의 미래 성장 혁신 지원
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-emerald-200/60 text-xs text-emerald-800 font-semibold">
+              소재지: 충청북도 청주시 흥덕구 오송보건의료행정타운
+            </div>
+          </div>
+
+          <!-- Card 2: 3대 핵심 전략 가치 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center mb-6 shadow-md shadow-teal-600/20">
+                <i data-lucide="award" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">핵심 가치 (3대 전략)</h3>
+              <div class="space-y-4">
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                  <span class="text-xs font-bold text-emerald-700">01. 기본이 단단한 안전</span>
+                  <p class="text-xs text-slate-600 mt-1">빈틈없는 안전관리 인프라와 AI 기반 위해요소 조기 차단</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                  <span class="text-xs font-bold text-teal-700">02. 함께 누리는 안심 일상</span>
+                  <p class="text-xs text-slate-600 mt-1">어린이·어르신·장애인 등 맞춤형 안전보호 및 희귀약 공급</p>
+                </div>
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                  <span class="text-xs font-bold text-blue-700">03. 혁신이 이끄는 성장</span>
+                  <p class="text-xs text-slate-600 mt-1">규제과학 혁신으로 대한민국 K-바이오·K-푸드 세계화 주도</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: 소속 및 산하기관 안내 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-6 shadow-md shadow-blue-600/20">
+                <i data-lucide="network" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">조직 및 전문 산하기관</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                본부(식품·의약품·의료기기안전국 등)와 함께 연구개발 전문평가기관 및 전국 6개 지방식약청이 유기적으로 협력합니다.
+              </p>
+              <div class="space-y-2 text-xs">
+                <div class="flex items-start gap-2 p-2 bg-blue-50/50 rounded-lg">
+                  <i data-lucide="building" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-slate-800">식품의약품안전평가원 (NIFDS)</span>
+                    <p class="text-slate-500">과학적 시험분석 및 임상·독성·규제과학 연구</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2 p-2 bg-blue-50/50 rounded-lg">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-slate-800">6개 지방식약청 & 검사소</span>
+                    <p class="text-slate-500">서울, 부산, 경인, 대구, 광주, 대전청 현장 집행</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span>식약동원(食藥同源) 철학 기반</span>
+              <span class="font-bold text-emerald-700">전국 촘촘한 현장 점검</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Core Roles (주요 업무 - 국민이 알기 쉬운 설명) -->
+    <section id="roles" class="py-16 sm:py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-emerald-700 font-bold text-xs sm:text-sm tracking-wider uppercase bg-emerald-100/70 px-3 py-1 rounded-full">Core Responsibilities</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-3 sm:text-4xl">국민의 하루를 지키는 4대 핵심 업무</h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base">
+            아침 식탁부터 병원 진료, 저녁 세안까지 우리 생활 곳곳에 식약처의 손길이 닿아 있습니다.
+          </p>
+        </div>
+
+        <!-- 4 Core Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Pillar 1: 식품 안전 -->
+          <div class="feature-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5">
+              <i data-lucide="utensils" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-amber-700 uppercase tracking-wide">Food Safety</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">식품 안전 관리</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              농축수산물, 가공식품, 수입식품, 외식업소까지 유해 물질 오염을 방지하고 HACCP(해썹) 및 위해식품 회수 조치를 실행합니다.
+            </p>
+            <div class="border-t border-slate-100 pt-3 text-xs space-y-1.5 text-slate-500">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600"></i> AI 수입식품 전자동 심사
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600"></i> 식중독 예방·신속경보 발령
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600"></i> 소비기한 표시제 안정 정착
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2: 의약품·바이오 -->
+          <div class="feature-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-5">
+              <i data-lucide="pill" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">Pharmaceuticals</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">의약품 & 바이오</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              백신, 항암제 등 신약의 임상시험 승인과 엄격한 품질(GMP) 심사, 부작용 모니터링 및 마약류 안전관리를 총괄합니다.
+            </p>
+            <div class="border-t border-slate-100 pt-3 text-xs space-y-1.5 text-slate-500">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-600"></i> 마약류통합관리시스템(NIMS)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-600"></i> 필수의약품 수급 모니터링
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-600"></i> 의약품 안심서비스(DUR) 연계
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3: 의료기기 -->
+          <div class="feature-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-5">
+              <i data-lucide="activity" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-indigo-700 uppercase tracking-wide">Medical Devices</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">첨단 의료기기</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              체온계·주사기부터 인공지능(AI) 진단 소프트웨어, 수술 로봇, 웨어러블 헬스케어 기기의 성능과 안전성을 인허가합니다.
+            </p>
+            <div class="border-t border-slate-100 pt-3 text-xs space-y-1.5 text-slate-500">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-indigo-600"></i> AI 진단의료기기 세계표준 제정
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-indigo-600"></i> 의료기기 고유식별코드(UDI)
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-indigo-600"></i> 혁신의료기기 지정 신속화
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 4: 화장품·생활용품 -->
+          <div class="feature-card bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center mb-5">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold text-rose-700 uppercase tracking-wide">Cosmetics & Hygiene</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">화장품 및 의약외품</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              선크림, 마스크, 생리대, 치약 등 생활밀착형 제품의 유해 성분 기준 설정과 기능성 화장품 심사, 허위과대광고를 모니터링합니다.
+            </p>
+            <div class="border-t border-slate-100 pt-3 text-xs space-y-1.5 text-slate-500">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-rose-600"></i> 유해물질 검출 상시 감시
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-rose-600"></i> 점자·음성변환 코드 의무화 지원
+              </div>
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-rose-600"></i> K-뷰티 수출국 규제장벽 해소
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Role Explorer / Life Journey -->
+        <div class="mt-12 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="clock" class="w-5 h-5 text-emerald-600"></i>
+                국민 24시간 생활 속 식약처 케어 맵
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-500 mt-1">우리 일상 속에서 식약처가 어떻게 작동하고 있는지 확인해 보세요.</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="showLifeTimeline('morning')" class="time-filter px-3 py-1.5 rounded-lg text-xs font-bold transition bg-emerald-600 text-white" data-target="morning">07:00 아침</button>
+              <button onclick="showLifeTimeline('lunch')" class="time-filter px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200" data-target="lunch">12:30 점심</button>
+              <button onclick="showLifeTimeline('afternoon')" class="time-filter px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200" data-target="afternoon">15:00 병원·약국</button>
+              <button onclick="showLifeTimeline('night')" class="time-filter px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200" data-target="night">21:00 귀가·휴식</button>
+            </div>
+          </div>
+
+          <div id="timelineContent" class="p-6 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-4 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <i data-lucide="coffee" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs px-2 py-0.5 rounded font-bold bg-emerald-200 text-emerald-800">아침 식사와 모닝 커피</span>
+                <span class="text-xs text-slate-400">07:00 AM</span>
+              </div>
+              <h4 class="text-base font-bold text-slate-800 mt-1.5">식탁에 오른 우유와 빵, 원두의 잔류농약·방사능 검사 완료</h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                출근 전 마시는 수입 커피 원두와 시리얼은 수입 단계에서 <strong>AI 위험예측시스템</strong>과 정밀 성분 검사를 거쳤으며, 
+                우유와 치즈 등 유제품은 <strong>HACCP(식품안전관리인증기준)</strong>을 통해 안전하게 제조되었습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2.5: Interactive Citizen Benefit Checker (설문 및 체크리스트) -->
+    <section id="matcher" class="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-emerald-50/30 to-slate-50 border-b border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="inline-flex items-center gap-1.5 text-emerald-800 font-bold text-xs sm:text-sm tracking-wider uppercase bg-emerald-100 px-3.5 py-1.5 rounded-full border border-emerald-300">
+            <i data-lucide="check-check" class="w-4 h-4 text-emerald-700"></i> 맞춤형 안심 가이드 & 설문
+          </span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-4 sm:text-4xl tracking-tight">
+            "나는 식약처로부터 어떤 도움을 받을 수 있을까?"
+          </h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+            나의 상황과 현재 필요한 분야를 선택해 보세요.<br class="hidden sm:inline">
+            식품의약품안전처가 국민 여러분께 제공하는 맞춤 안전망과 포털 서비스, 지원 제도를 바로 찾아드립니다.
+          </p>
+        </div>
+
+        <!-- Checker Container Card -->
+        <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+          
+          <!-- Mode Tabs (설문 진단형 vs 전체 체크리스트) -->
+          <div class="flex border-b border-slate-200 bg-slate-50/80">
+            <button id="tab-survey" onclick="switchMatcherTab('survey')" class="flex-1 py-4 text-center font-bold text-sm sm:text-base text-emerald-700 border-b-2 border-emerald-600 bg-white transition flex items-center justify-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i> 1분 상황별 맞춤 추천 진단
+            </button>
+            <button id="tab-checklist" onclick="switchMatcherTab('checklist')" class="flex-1 py-4 text-center font-bold text-sm sm:text-base text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition flex items-center justify-center gap-2">
+              <i data-lucide="list-checks" class="w-4 h-4"></i> 국민 체감 혜택 전체 체크리스트
+            </button>
+          </div>
+
+          <!-- TAB 1: 3단계 인터랙티브 설문 -->
+          <div id="matcher-survey-panel" class="p-6 sm:p-10">
+            <!-- Progress indicator -->
+            <div class="mb-8">
+              <div class="flex items-center justify-between text-xs font-semibold text-slate-500 mb-2">
+                <span id="step-label">1단계: 나의 신분 / 상황을 선택해 주세요</span>
+                <span id="step-indicator" class="text-emerald-700 font-bold">1 / 3 단계</span>
+              </div>
+              <div class="w-full bg-slate-100 rounded-full h-2">
+                <div id="step-progress-bar" class="bg-emerald-500 h-2 rounded-full transition-all duration-300" style="width: 33.3%;"></div>
+              </div>
+            </div>
+
+            <!-- Survey Form Steps -->
+            <div id="survey-content">
+              <!-- Step 1: Persona Selection -->
+              <div id="survey-step-1" class="space-y-4">
+                <h3 class="text-lg font-bold text-slate-900">당신은 어떤 상황에 해당하시나요?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <label class="persona-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="persona" value="consumer" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" checked>
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">일반 소비자 / 직장인·청년</p>
+                      <p class="text-xs text-slate-500 mt-0.5">배달음식·온라인 직구·건기식·화장품을 자주 이용해요</p>
+                    </div>
+                  </label>
+                  <label class="persona-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="persona" value="parent" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">영유아·어린이 부모 / 학부모</p>
+                      <p class="text-xs text-slate-500 mt-0.5">학교 급식 위생, 분유·이유식 안전, 어린이 기호식품이 걱정돼요</p>
+                    </div>
+                  </label>
+                  <label class="persona-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="persona" value="patient" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">환자 / 만성·희귀질환자 및 보호자</p>
+                      <p class="text-xs text-slate-500 mt-0.5">복용 약의 부작용·중복처방, 고가 치료제 수급 정보가 필요해요</p>
+                    </div>
+                  </label>
+                  <label class="persona-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="persona" value="business" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">외식업 자영업자 / 소상공인 / 창업자</p>
+                      <p class="text-xs text-slate-500 mt-0.5">음식점 위생등급제, 식품 표시기준, 인허가 규제 컨설팅이 궁금해요</p>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="pt-4 flex justify-end">
+                  <button onclick="goToSurveyStep(2)" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm flex items-center gap-1.5 transition">
+                    다음 질문 <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2: Main Area of Concern -->
+              <div id="survey-step-2" class="hidden space-y-4">
+                <h3 class="text-lg font-bold text-slate-900">어떤 분야의 도움이 가장 절실한가요?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <label class="concern-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="concern" value="food" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" checked>
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">식품 안전 & 위해식품 차단</p>
+                      <p class="text-xs text-slate-500 mt-0.5">회수식품 조회, 식중독 주의보, 불량식품 1399 신고</p>
+                    </div>
+                  </label>
+                  <label class="concern-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="concern" value="drug" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">의약품 안전 & 복약 지도</p>
+                      <p class="text-xs text-slate-500 mt-0.5">약 복용 주의사항(DUR), 부작용 피해구제, 의약품 성분 검색</p>
+                    </div>
+                  </label>
+                  <label class="concern-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="concern" value="device" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">의료기기 & 헬스케어 기기</p>
+                      <p class="text-xs text-slate-500 mt-0.5">가정용 혈압계·체온계 인증 여부 및 안전 사용법</p>
+                    </div>
+                  </label>
+                  <label class="concern-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="concern" value="cosmetic" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">화장품 성분 & 의약외품 허위광고</p>
+                      <p class="text-xs text-slate-500 mt-0.5">화장품 알레르기 유발성분, 생리대·치약 안전성 확인</p>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="pt-4 flex justify-between">
+                  <button onclick="goToSurveyStep(1)" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm flex items-center gap-1.5 transition">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i> 이전
+                  </button>
+                  <button onclick="goToSurveyStep(3)" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm flex items-center gap-1.5 transition">
+                    다음 질문 <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Priority Goal -->
+              <div id="survey-step-3" class="hidden space-y-4">
+                <h3 class="text-lg font-bold text-slate-900">가장 원하시는 해결 방법은 무엇인가요?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <label class="goal-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="goal" value="search" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500" checked>
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">실시간 온라인 데이터 조회·확인</p>
+                      <p class="text-xs text-slate-500 mt-0.5">제품명이나 성분을 직접 검색해 바로 안전성을 확인하고 싶어요</p>
+                    </div>
+                  </label>
+                  <label class="goal-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="goal" value="report" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">위해사례 신고 & 신속 구제 요청</p>
+                      <p class="text-xs text-slate-500 mt-0.5">이물 발견, 부작용 피해 또는 부당 과대광고를 신고하고 싶어요</p>
+                    </div>
+                  </label>
+                  <label class="goal-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="goal" value="support" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">정부 지원 사업 / 무상 제공 신청</p>
+                      <p class="text-xs text-slate-500 mt-0.5">희귀질환 치료제 무상 지원, 위생등급 컨설팅 등 혜택을 받고 싶어요</p>
+                    </div>
+                  </label>
+                  <label class="goal-option flex items-center gap-3.5 p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/30 cursor-pointer transition">
+                    <input type="radio" name="goal" value="consult" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                    <div>
+                      <p class="font-bold text-slate-800 text-sm">전문가 1:1 전화 상담 및 가이드북 열람</p>
+                      <p class="text-xs text-slate-500 mt-0.5">식약처 전담 상담원과 통화하거나 공식 지침서를 다운받고 싶어요</p>
+                    </div>
+                  </label>
+                </div>
+
+                <div class="pt-4 flex justify-between">
+                  <button onclick="goToSurveyStep(2)" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm flex items-center gap-1.5 transition">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i> 이전
+                  </button>
+                  <button onclick="generateCustomResult()" class="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl text-sm flex items-center gap-2 shadow-md transition">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> 결과 확인하기
+                  </button>
+                </div>
+              </div>
+
+              <!-- Survey Result Screen -->
+              <div id="survey-result" class="hidden">
+                <div class="bg-gradient-to-br from-emerald-50/90 to-teal-50/60 p-6 sm:p-8 rounded-2xl border border-emerald-200 mb-6">
+                  <div class="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wide">
+                    <i data-lucide="badge-check" class="w-4 h-4"></i> 식약처 맞춤 분석 결과
+                  </div>
+                  <h3 id="result-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1"></h3>
+                  <p id="result-desc" class="text-sm text-slate-600 mt-2 leading-relaxed"></p>
+
+                  <!-- Matched Actions / Services List -->
+                  <div class="mt-6 space-y-3" id="result-actions"></div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                  <button onclick="resetSurvey()" class="px-5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4"></i> 다시 진단하기
+                  </button>
+                  <a href="#services" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold flex items-center gap-1.5 transition">
+                    식약처 대표 서비스 목록 보기 <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: 상시 체크리스트 (다중 선택형) -->
+          <div id="matcher-checklist-panel" class="hidden p-6 sm:p-10">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">국민 일상 안심 체크리스트</h3>
+                <p class="text-xs text-slate-500 mt-0.5">해당하는 항목에 체크하시면, 즉시 이용 가능한 식약처 공식 채널을 연결해 드립니다.</p>
+              </div>
+              <span id="checked-counter" class="text-xs font-bold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full">
+                0개 선택됨
+              </span>
+            </div>
+
+            <!-- Checklist Items -->
+            <div class="space-y-3.5">
+              <label class="chk-item flex items-start gap-3.5 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="checkbox" onchange="updateChecklist()" class="chk-box mt-0.5 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500" data-portal="식품안전나라 (위해식품 조회)" data-url="https://www.foodsafetykorea.go.kr" data-desc="구매한 식품이 회수 대상이거나 부적합 제품인지 확인하고 싶어요.">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-sm text-slate-800">구매한 가공식품·수입과자 이물 및 회수 여부 확인</span>
+                    <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">식품안전</span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1">포장지 바코드나 제품명으로 유해물질 검출 회수 현황을 즉시 검색할 수 있습니다.</p>
+                </div>
+              </label>
+
+              <label class="chk-item flex items-start gap-3.5 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="checkbox" onchange="updateChecklist()" class="chk-box mt-0.5 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500" data-portal="의약품안전나라 (DUR & 부작용)" data-url="https://nedrug.mfds.go.kr" data-desc="복용 중인 약의 중복 복용 주의사항이나 부작용 피해구제를 신청하고 싶어요.">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-sm text-slate-800">처방약·영양제 함께 먹어도 되는지 상호작용 및 부작용 확인</span>
+                    <span class="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">의약품안전</span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1">DUR(의약품안심서비스) 및 의약품 부작용 피해구제 제도(치료비·보상금 국가 지원)를 이용할 수 있습니다.</p>
+                </div>
+              </label>
+
+              <label class="chk-item flex items-start gap-3.5 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="checkbox" onchange="updateChecklist()" class="chk-box mt-0.5 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500" data-portal="해외직구식품 올(ALL)바로" data-url="https://www.foodsafetykorea.go.kr" data-desc="직구한 영양제나 다이어트 보조제의 유해 성분 차단 여부를 검색하고 싶어요.">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-sm text-slate-800">해외직구 다이어트약·단백질보충제 유해성분 여부 검증</span>
+                    <span class="text-[11px] font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded">해외직구식품</span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1">국내 반입이 차단된 마약류 유사물질, 발기부전치료제 성분 함유 제품 3,000여 종을 실시간 조회합니다.</p>
+                </div>
+              </label>
+
+              <label class="chk-item flex items-start gap-3.5 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="checkbox" onchange="updateChecklist()" class="chk-box mt-0.5 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500" data-portal="국민신문고 1399 센터" data-url="https://www.epeople.go.kr" data-desc="식당 이물질, 위생 불량 또는 과장 광고를 신속 신고하고 싶어요.">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-sm text-slate-800">배달음식 위생 불량·이물 발견 신고 및 허위 과대광고 제보</span>
+                    <span class="text-[11px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">불량식품 1399</span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1">전화(국번없이 1399) 또는 스마트폰 앱으로 신고 시 지자체·식약처가 합동 현장 조사 후 결과를 통보합니다.</p>
+                </div>
+              </label>
+
+              <label class="chk-item flex items-start gap-3.5 p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <input type="checkbox" onchange="updateChecklist()" class="chk-box mt-0.5 w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500" data-portal="한국희귀·필수의약품센터" data-url="https://www.kodc.or.kr" data-desc="국내에 유통되지 않는 희귀의약품의 긴급 도입과 지원을 받고 싶어요.">
+                <div class="flex-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-sm text-slate-800">희귀질환 치료제 국내 미출시약 공급 및 환자 맞춤 식사 지침</span>
+                    <span class="text-[11px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">취약계층 복지</span>
+                  </div>
+                  <p class="text-xs text-slate-500 mt-1">한국희귀·필수의약품센터를 통해 해외 신약을 직접 수입·공급받고 소아 환자 영양관리 지침을 제공받습니다.</p>
+                </div>
+              </label>
+            </div>
+
+            <!-- Checklist Summary Box -->
+            <div id="checklist-summary-box" class="hidden mt-6 p-5 bg-emerald-50 rounded-2xl border border-emerald-200">
+              <h4 class="font-bold text-sm text-emerald-900 flex items-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i> 선택하신 항목에 맞는 식약처 원클릭 지원 서비스
+              </h4>
+              <div id="checklist-result-links" class="mt-3 space-y-2"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Trends & Innovations (최신 정책 동향) -->
+    <section id="trends" class="py-16 sm:py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-emerald-700 font-bold text-xs sm:text-sm tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Policy & Innovation</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-3 sm:text-4xl">식약처 최신 정책 & 규제혁신 동향</h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base">
+            디지털 대전환과 AI 기술을 접목하여 선제적이고 스마트한 안전망을 만듭니다.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Trend 1 -->
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-emerald-700 px-2.5 py-1 bg-emerald-100/60 rounded-md">디지털 혁신</span>
+              <span class="text-xs text-slate-400 font-mono">TREND 01</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center mb-4">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">AI 기반 스마트 안전관리 체계</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              수입식품 24시간 자동 전자심사 시스템(우수수입업소 자동수리)을 고도화하고, 딥러닝 기반 <strong>AI 이물검출기</strong> 및 빅데이터 위해요소 10종 사전 예측 모델을 도입하여 위해식품의 유입을 국경에서 원천 차단합니다.
+            </p>
+          </div>
+
+          <!-- Trend 2 -->
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-teal-700 px-2.5 py-1 bg-teal-100/60 rounded-md">국민 체감 복지</span>
+              <span class="text-xs text-slate-400 font-mono">TREND 02</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-teal-500/10 text-teal-600 flex items-center justify-center mb-4">
+              <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">희귀질환·취약계층 맞춤 케어</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              희귀난치질환 환아를 위한 특수 맞춤 식사 가이드라인을 개발하고, 사회복지 급식관리지원센터를 전국 단위로 확대하였습니다. 또한 고가 희귀의약품의 무상 공급 지원 및 장애인용 점자·수어 코드 표준화를 본격 추진 중입니다.
+            </p>
+          </div>
+
+          <!-- Trend 3 -->
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-blue-700 px-2.5 py-1 bg-blue-100/60 rounded-md">사회 안전</span>
+              <span class="text-xs text-slate-400 font-mono">TREND 03</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-600 flex items-center justify-center mb-4">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">의료용 마약류 오남용 강력 대응</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              프로포폴, 펜타닐, 펜터민 등 의료용 마약류의 <strong>의사 본인 처방(셀프처방) 금지 성분</strong>을 전면 확대하고, NIMS(마약류통합관리시스템)의 빅데이터 분석으로 과다처방 병·의원 및 쇼핑 환자를 실시간 적발·차단합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- WHO WLA 등재 등 글로벌 리더십 배너 -->
+        <div class="mt-10 p-6 sm:p-8 bg-gradient-to-r from-slate-900 to-emerald-950 text-white rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-400/30 flex items-center justify-center shrink-0">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/30 text-emerald-300 font-semibold">글로벌 규제선도</span>
+                <span class="text-xs text-slate-400">대한민국 식약처 위상</span>
+              </div>
+              <h4 class="text-lg sm:text-xl font-bold mt-1 text-white">WHO 우수규제기관(WLA) 등재 & 글로벌 AI 규제표준 정립</h4>
+              <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
+                한국 식약처의 의약품·백신 심사 역량이 WHO 및 전 세계의 공인을 받았습니다. 규제과학 통합 교육 플랫폼 '규제과학IN(人)'을 통해 세계적 전문 인재를 육성하고 있습니다.
+              </p>
+            </div>
+          </div>
+          <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="shrink-0 px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-xs sm:text-sm rounded-xl transition">
+            글로벌 협력 성과 보기
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Live Official News & Press (최신 뉴스 기사 및 보도자료) -->
+    <section id="news" class="py-16 sm:py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-emerald-700 font-bold text-xs sm:text-sm tracking-wider uppercase bg-emerald-100/70 px-3 py-1 rounded-full">Press & Media Releases</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-3 sm:text-4xl">식약처 주요 보도 및 정책 뉴스</h2>
+            <p class="text-slate-600 mt-2 text-sm sm:text-base">
+              언론에 보도된 식약처의 최신 공식 보도자료 및 정책 발표 원문 링크를 확인하세요.
+            </p>
+          </div>
+          <div class="mt-4 md:mt-0 flex gap-2">
+            <a href="https://www.mfds.go.kr/brd/m_99/list.do" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 transition shadow-sm">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-emerald-600"></i> 식약처 보도자료실
+            </a>
+            <a href="https://www.korea.kr/briefing/pressReleaseList.do" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-100 transition shadow-sm">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-blue-600"></i> 대한민국 정책브리핑
+            </a>
+          </div>
+        </div>
+
+        <!-- News Cards Grid with Direct Verified URLs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- News Item 1 -->
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="px-2 py-0.5 rounded font-semibold bg-emerald-100 text-emerald-800">식품안전 정책</span>
+                <span class="text-slate-400">대한민국 정책브리핑</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug hover:text-emerald-700 transition">
+                <a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer">
+                  식약처, 2026년 업무계획 발표 "기본이 단단한 국민안전, AI 위험예측 시스템 본격 도입"
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                '일상에 안심을, 성장에 힘을'이라는 슬로건과 함께 수입식품 AI 이물검출기 개발, 식품 위해요소 10종 사전예측 모델 구축 등 첨단 과학 기반 안전망 3대 전략을 공식 발표했습니다.
+              </p>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">보도자료 원문</span>
+              <a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                기사 보러가기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 2 -->
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="px-2 py-0.5 rounded font-semibold bg-blue-100 text-blue-800">의약품 안전</span>
+                <span class="text-slate-400">식약처 언론보도</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug hover:text-emerald-700 transition">
+                <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer">
+                  의료용 마약류 '셀프처방·투약' 금지 대상 성분 대폭 확대… 통합감시망 가동
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                의사가 자신에게 직접 처방할 수 없는 마약류 성분을 확대 지정하고, NIMS 연계 상시 모니터링 체계를 가동하여 의료용 마약류의 오남용을 원천 방지합니다.
+              </p>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">보도자료 원문</span>
+              <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                기사 보러가기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 3 -->
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="px-2 py-0.5 rounded font-semibold bg-rose-100 text-rose-800">생활안전 배려</span>
+                <span class="text-slate-400">정책브리핑</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug hover:text-emerald-700 transition">
+                <a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer">
+                  화장품 점자 및 음성·수어 영상변환용 코드 표시 가이드라인 제정 배포
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                시각 및 청각장애인의 화장품 정보 접근성을 높이기 위해 포장·용기에 점자와 디지털 코드를 표준화하여 표기할 수 있는 세부 가이드라인을 수립했습니다.
+              </p>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">가이드라인 안내</span>
+              <a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                기사 보러가기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 4 -->
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="px-2 py-0.5 rounded font-semibold bg-teal-100 text-teal-800">국민영양 맞춤</span>
+                <span class="text-slate-400">정부혁신 우수</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug hover:text-emerald-700 transition">
+                <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer">
+                  희귀질환 어린이 식사안전관리 지침 마련… '정부혁신 왕중왕전' 본선 진출
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                취약계층 식단 관리를 위한 맞춤형 영양·식사 가이드라인을 개발하여 국민이 피부로 체감할 수 있는 따뜻한 식의약 행정 우수사례로 주목받았습니다.
+              </p>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">혁신 사례</span>
+              <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                기사 보러가기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 5 -->
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="px-2 py-0.5 rounded font-semibold bg-amber-100 text-amber-800">식중독 예방</span>
+                <span class="text-slate-400">식품안전나라</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug hover:text-emerald-700 transition">
+                <a href="https://www.foodsafetykorea.go.kr" target="_blank" rel="noopener noreferrer">
+                  환절기·동절기 노로바이러스 및 수산물 유해물질 집중 예방수칙 공지
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                계절별 주요 식중독 원인 물질(노로바이러스, 쿠도아충 등) 발생 동향 분석에 따른 음식점 및 급식시설 위생 안전 수칙을 긴급 전파했습니다.
+              </p>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">예방수칙 전문</span>
+              <a href="https://www.foodsafetykorea.go.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                기사 보러가기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 6 -->
+          <article class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="px-2 py-0.5 rounded font-semibold bg-purple-100 text-purple-800">규제과학 육성</span>
+                <span class="text-slate-400">통합 교육</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 leading-snug hover:text-emerald-700 transition">
+                <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer">
+                  식의약 규제과학 인재양성 통합플랫폼 '규제과학IN(人)' 대국민 오픈
+                </a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2.5 line-clamp-3 leading-relaxed">
+                바이오헬스 인재양성과 규제 역량 강화를 위해 통합 교육 관리 시스템을 구축하고, 산·학·연 전문가 및 취업 준비생 대상 온라인 교육을 개시했습니다.
+              </p>
+            </div>
+            <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">플랫폼 안내</span>
+              <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1">
+                기사 보러가기 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Citizen Interactive Services (국민 참여 포털 바로가기 및 자가체크) -->
+    <section id="services" class="py-16 sm:py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-emerald-700 font-bold text-xs sm:text-sm tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Public Services</span>
+          <h2 class="text-3xl font-extrabold text-slate-900 mt-3 sm:text-4xl">국민을 위한 대표 식의약 포털 서비스</h2>
+          <p class="text-slate-600 mt-3 text-sm sm:text-base">
+            회수·판매중지 식품 조회부터 의약품 복용 정보까지 언제든 클릭 한 번으로 확인하세요.
+          </p>
+        </div>
+
+        <!-- Portals Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Portal 1: 식품안전나라 -->
+          <a href="https://www.foodsafetykorea.go.kr" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition bg-white block">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="search" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition flex items-center justify-between">
+              식품안전나라
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600"></i>
+            </h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              위해식품 회수정보, 영양성분 데이터베이스, 수입식품 조회 및 식품 안전 지식 총집합
+            </p>
+          </a>
+
+          <!-- Portal 2: 의약품안전나라 -->
+          <a href="https://nedrug.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-lg transition bg-white block">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="cross" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition flex items-center justify-between">
+              의약품안전나라
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-blue-600"></i>
+            </h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              의약품 검색, 복약정보, 임상시험 정보 및 의약품 회수·폐기 현황 실시간 조회
+            </p>
+          </a>
+
+          <!-- Portal 3: 의료기기안전나라 -->
+          <a href="https://udiportal.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition bg-white block">
+            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="scan-line" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-700 transition flex items-center justify-between">
+              의료기기안전나라
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-indigo-600"></i>
+            </h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              의료기기 통합정보시스템(UDI), 허가정보 조회, 부작용 보고 및 안전성 서한 열람
+            </p>
+          </a>
+
+          <!-- Portal 4: 국민신문고 / 불량식품 신고 -->
+          <a href="https://www.epeople.go.kr" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-lg transition bg-white block">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="megaphone" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-amber-700 transition flex items-center justify-between">
+              민원·부패·신고 1399
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-amber-600"></i>
+            </h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              불량식품·부당광고 신고(국번없이 1399), 국민제안 및 식약처 공식 민원신청 창구
+            </p>
+          </a>
+        </div>
+
+        <!-- Interactive Safety Quiz / Citizen FAQ Widget -->
+        <div class="mt-12 bg-slate-50 rounded-2xl border border-slate-200 p-6 sm:p-8">
+          <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-6">
+              <span class="text-xs px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full font-bold">국민 상식 Q&A</span>
+              <h3 class="text-xl font-bold text-slate-900 mt-2">알아두면 유익한 식의약 상식 자가진단</h3>
+            </div>
+
+            <div class="space-y-3">
+              <!-- FAQ Item 1 -->
+              <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <button onclick="toggleFaq(1)" class="w-full px-5 py-4 text-left font-bold text-slate-800 flex items-center justify-between hover:bg-slate-50 transition text-sm sm:text-base">
+                  <span>Q1. '유통기한'과 '소비기한'은 무엇이 다른가요?</span>
+                  <i id="faq-icon-1" data-lucide="chevron-down" class="w-4 h-4 text-slate-500 transition-transform"></i>
+                </button>
+                <div id="faq-ans-1" class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3 leading-relaxed">
+                  <strong>유통기한</strong>은 제조일로부터 소비자에게 판매가 허용되는 기한(영업자 중심)이었던 반면, <strong>소비기한</strong>은 표시된 보관방법을 준수했을 때 섭취해도 안전에 이상이 없는 기한(소비자 중심)입니다. 소비기한 도입으로 음식물 쓰레기와 경제적 손실을 크게 줄이고 있습니다.
+                </div>
+              </div>
+
+              <!-- FAQ Item 2 -->
+              <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <button onclick="toggleFaq(2)" class="w-full px-5 py-4 text-left font-bold text-slate-800 flex items-center justify-between hover:bg-slate-50 transition text-sm sm:text-base">
+                  <span>Q2. 먹다 남은 의약품이나 유효기간 지난 약은 어떻게 버리나요?</span>
+                  <i id="faq-icon-2" data-lucide="chevron-down" class="w-4 h-4 text-slate-500 transition-transform"></i>
+                </button>
+                <div id="faq-ans-2" class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3 leading-relaxed">
+                  폐의약품을 일반 쓰레기봉투나 싱크대, 변기에 버릴 경우 토양과 수질 생태계를 오염시키고 항생제 내성균을 유발할 수 있습니다. 가까운 <strong>약국, 보건소, 주민센터의 '폐의약품 수거함'</strong>에 분리배출 하셔야 합니다.
+                </div>
+              </div>
+
+              <!-- FAQ Item 3 -->
+              <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <button onclick="toggleFaq(3)" class="w-full px-5 py-4 text-left font-bold text-slate-800 flex items-center justify-between hover:bg-slate-50 transition text-sm sm:text-base">
+                  <span>Q3. 온라인 쇼핑몰에서 파는 해외직구 건강기능식품은 안전한가요?</span>
+                  <i id="faq-icon-3" data-lucide="chevron-down" class="w-4 h-4 text-slate-500 transition-transform"></i>
+                </button>
+                <div id="faq-ans-3" class="hidden px-5 pb-4 text-xs sm:text-sm text-slate-600 border-t border-slate-100 pt-3 leading-relaxed">
+                  정식 수입통관 절차를 거치지 않은 직접구매 제품은 국내에서 금지된 유해 성분(마약류, 발기부전치료제 유사물질 등)이 포함될 위험이 있습니다. 구매 전 <strong>'식품안전나라 - 해외직구식품 올(ALL)바로'</strong> 코너에서 위해 원료 차단 목록을 반드시 검색해 보세요!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+            <i data-lucide="shield" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <span class="text-base font-bold text-white tracking-tight">식품의약품안전처 (MFDS)</span>
+            <p class="text-xs text-slate-400">대한민국 정부 중앙행정기관</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-xs">
+          <a href="https://www.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">식약처 공식 홈페이지</a>
+          <span>·</span>
+          <a href="https://www.foodsafetykorea.go.kr" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">식품안전나라</a>
+          <span>·</span>
+          <a href="https://nedrug.mfds.go.kr" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">의약품안전나라</a>
+          <span>·</span>
+          <a href="https://www.korea.kr" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">대한민국 정책브리핑</a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div>
+          <p>(28159) 충청북도 청주시 흥덕구 오송읍 오송생명2로 187 오송보건의료행정타운 식품의약품안전처</p>
+          <p class="mt-1">대표전화: 1577-1255 (평일 09:00 ~ 18:00) | 불량식품 통합신고센터: 국번없이 1399</p>
+        </div>
+        <div class="text-center md:text-right">
+          <p>© Ministry of Food and Drug Safety. All Rights Reserved.</p>
+          <p class="text-emerald-400 mt-1 font-medium">별도의 서버 없이 브라우저 더블클릭으로 동작하는 단독 실행형 웹 앱</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Client-side Interactive JavaScript (No build/server required) -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 24 Hours Life Journey Interactive Data
+    const lifeTimelines = {
+      morning: {
+        time: '07:00 AM',
+        title: '아침 식사와 모닝 커피',
+        desc: '출근 전 마시는 수입 커피 원두와 시리얼은 수입 단계에서 AI 위험예측시스템과 정밀 성분 검사를 거쳤으며, 우유와 치즈 등 유제품은 HACCP(식품안전관리인증기준)을 통해 안전하게 제조되었습니다.',
+        tag: '아침 식사와 모닝 커피',
+        icon: 'coffee'
+      },
+      lunch: {
+        time: '12:30 PM',
+        title: '직장 구내식당 & 외식 위생',
+        desc: '전국 학교 및 어린이·사회복지 급식관리지원센터의 전문 영양·위생 지도와 함께, 일반음식점의 위생등급제 지정을 통해 안전하고 안심할 수 있는 점심식사를 제공합니다.',
+        tag: '위생등급 음식점 & 급식',
+        icon: 'utensils-crossed'
+      },
+      afternoon: {
+        time: '15:00 PM',
+        title: '병원 진료 및 약국 조제',
+        desc: '진료 시 사용하는 AI 진단 소프트웨어와 체온계의 성능 검증부터, 처방받은 의약품이 중복되거나 함께 먹으면 안 되는 약인지 의약품 안심서비스(DUR)로 실시간 확인합니다.',
+        tag: 'DUR 의약품 안전점검',
+        icon: 'pill'
+      },
+      night: {
+        time: '21:00 PM',
+        title: '귀가 후 세안 및 기초케어',
+        desc: '치약, 샴푸, 스킨로션, 마스크팩 등 하루의 피로를 푸는 화장품 및 의약외품의 중금속·유해물질 안전 기준 준수 여부와 허위 과대광고를 모니터링하여 안심 일상을 완성합니다.',
+        tag: '화장품·의약외품 안전기준',
+        icon: 'sparkles'
+      }
+    };
+
+    function showLifeTimeline(key) {
+      const data = lifeTimelines[key];
+      const container = document.getElementById('timelineContent');
+      if (!data || !container) return;
+
+      container.innerHTML = `
+        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+          <i data-lucide="${data.icon}" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs px-2 py-0.5 rounded font-bold bg-emerald-200 text-emerald-800">${data.tag}</span>
+            <span class="text-xs text-slate-400">${data.time}</span>
+          </div>
+          <h4 class="text-base font-bold text-slate-800 mt-1.5">${data.title}</h4>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">${data.desc}</p>
+        </div>
+      `;
+      lucide.createIcons();
+
+      // Update button styles
+      document.querySelectorAll('.time-filter').forEach(btn => {
+        if (btn.getAttribute('data-target') === key) {
+          btn.className = 'time-filter px-3 py-1.5 rounded-lg text-xs font-bold transition bg-emerald-600 text-white';
+        } else {
+          btn.className = 'time-filter px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-600 hover:bg-slate-200';
+        }
+      });
+    }
+
+    // Toggle FAQ Accordion
+    function toggleFaq(index) {
+      const ans = document.getElementById(`faq-ans-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      if (!ans || !icon) return;
+
+      const isHidden = ans.classList.contains('hidden');
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        ans.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    // --- Interactive Benefit Matcher & Survey Logic ---
+    let currentSurveyStep = 1;
+
+    function switchMatcherTab(tab) {
+      const surveyTabBtn = document.getElementById('tab-survey');
+      const checklistTabBtn = document.getElementById('tab-checklist');
+      const surveyPanel = document.getElementById('matcher-survey-panel');
+      const checklistPanel = document.getElementById('matcher-checklist-panel');
+
+      if (tab === 'survey') {
+        surveyTabBtn.className = 'flex-1 py-4 text-center font-bold text-sm sm:text-base text-emerald-700 border-b-2 border-emerald-600 bg-white transition flex items-center justify-center gap-2';
+        checklistTabBtn.className = 'flex-1 py-4 text-center font-bold text-sm sm:text-base text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition flex items-center justify-center gap-2';
+        surveyPanel.classList.remove('hidden');
+        checklistPanel.classList.add('hidden');
+      } else {
+        checklistTabBtn.className = 'flex-1 py-4 text-center font-bold text-sm sm:text-base text-emerald-700 border-b-2 border-emerald-600 bg-white transition flex items-center justify-center gap-2';
+        surveyTabBtn.className = 'flex-1 py-4 text-center font-bold text-sm sm:text-base text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition flex items-center justify-center gap-2';
+        checklistPanel.classList.remove('hidden');
+        surveyPanel.classList.add('hidden');
+      }
+      lucide.createIcons();
+    }
+
+    function goToSurveyStep(step) {
+      currentSurveyStep = step;
+      document.getElementById('survey-step-1').classList.add('hidden');
+      document.getElementById('survey-step-2').classList.add('hidden');
+      document.getElementById('survey-step-3').classList.add('hidden');
+      document.getElementById('survey-result').classList.add('hidden');
+
+      const targetStep = document.getElementById(`survey-step-${step}`);
+      if (targetStep) targetStep.classList.remove('hidden');
+
+      const progressBar = document.getElementById('step-progress-bar');
+      const stepIndicator = document.getElementById('step-indicator');
+      const stepLabel = document.getElementById('step-label');
+
+      if (step === 1) {
+        progressBar.style.width = '33.3%';
+        stepIndicator.innerText = '1 / 3 단계';
+        stepLabel.innerText = '1단계: 나의 신분 / 상황을 선택해 주세요';
+      } else if (step === 2) {
+        progressBar.style.width = '66.6%';
+        stepIndicator.innerText = '2 / 3 단계';
+        stepLabel.innerText = '2단계: 가장 관심 있는 안전 분야를 선택해 주세요';
+      } else if (step === 3) {
+        progressBar.style.width = '100%';
+        stepIndicator.innerText = '3 / 3 단계';
+        stepLabel.innerText = '3단계: 원하시는 해결 방식을 선택해 주세요';
+      }
+      lucide.createIcons();
+    }
+
+    function generateCustomResult() {
+      const persona = document.querySelector('input[name="persona"]:checked')?.value || 'consumer';
+      const concern = document.querySelector('input[name="concern"]:checked')?.value || 'food';
+      const goal = document.querySelector('input[name="goal"]:checked')?.value || 'search';
+
+      // Hide steps, show result
+      document.getElementById('survey-step-1').classList.add('hidden');
+      document.getElementById('survey-step-2').classList.add('hidden');
+      document.getElementById('survey-step-3').classList.add('hidden');
+      const resultPanel = document.getElementById('survey-result');
+      resultPanel.classList.remove('hidden');
+
+      const stepLabel = document.getElementById('step-label');
+      const stepIndicator = document.getElementById('step-indicator');
+      stepLabel.innerText = '🎉 고객 맞춤 분석 완료!';
+      stepIndicator.innerText = '완료';
+
+      const resultTitle = document.getElementById('result-title');
+      const resultDesc = document.getElementById('result-desc');
+      const resultActions = document.getElementById('result-actions');
+
+      // Recommendation mapping database
+      const personaLabels = {
+        consumer: '일반 소비자 & 청년·직장인',
+        parent: '영유아·어린이 부모',
+        patient: '환자 및 만성질환자 가족',
+        business: '외식업·소상공인 영업자'
+      };
+
+      const concernLabels = {
+        food: '식품 안전 & 불량식품',
+        drug: '의약품 상호작용 & 부작용',
+        device: '의료기기 & 헬스케어',
+        cosmetic: '화장품 성분 & 의약외품'
+      };
+
+      resultTitle.innerText = `[${personaLabels[persona]}] 님을 위한 ${concernLabels[concern]} 안심 솔루션`;
+      
+      let descText = "";
+      let recommendations = [];
+
+      if (persona === 'parent') {
+        descText = "자녀의 건강을 위해 식약처는 어린이급식관리지원센터 영양사 지도, 어린이 기호식품 품질인증제 및 분유·이유식 특별 안전검사를 제공합니다.";
+        recommendations = [
+          {
+            title: "식품안전나라 '어린이 기호식품' 안심 검색",
+            desc: "학교 앞 문구점이나 편의점에서 파는 과자, 음료의 HACCP 및 품질인증 여부를 조회하세요.",
+            url: "https://www.foodsafetykorea.go.kr",
+            badge: "원클릭 조회"
+          },
+          {
+            title: "어린이 식사안전관리 영양 가이드 열람",
+            desc: "성장기 어린이 및 특이체질·알레르기 아동을 위한 식약처 공식 식단 관리 수칙을 확인하세요.",
+            url: "https://www.mfds.go.kr",
+            badge: "가이드북"
+          }
+        ];
+      } else if (persona === 'patient') {
+        descText = "환자분과 가족을 위해 식약처는 중복 처방을 방지하는 의약품안심서비스(DUR), 의약품 부작용 피해구제 제도 및 희귀필수의약품 긴급 공급을 운영합니다.";
+        recommendations = [
+          {
+            title: "의약품안전나라 복약 정보 & DUR 검색",
+            desc: "내가 먹는 약의 효능과 병용 금기 성분, 주의사항을 실시간으로 확인하세요.",
+            url: "https://nedrug.mfds.go.kr",
+            badge: "DUR 서비스"
+          },
+          {
+            title: "한국희귀·필수의약품센터 공급 신청",
+            desc: "국내에 수입되지 않는 희귀난치 질환 치료제의 공급 신청 절차와 환자 지원을 안내받으세요.",
+            url: "https://www.kodc.or.kr",
+            badge: "의약품 공급"
+          },
+          {
+            title: "의약품 부작용 피해구제 제도 안내",
+            desc: "정상적인 복용에도 발생한 중대한 부작용 피해에 대해 국가가 진료비 및 사망일시보상금을 지급합니다.",
+            url: "https://nedrug.mfds.go.kr",
+            badge: "정부 지원"
+          }
+        ];
+      } else if (persona === 'business') {
+        descText = "외식업 및 창업 소상공인을 위해 식약처는 음식점 위생등급제 무료 사전 컨설팅, 식품 표시 규정 상담 및 규제샌드박스를 지원합니다.";
+        recommendations = [
+          {
+            title: "음식점 위생등급제 신청 & 자율평가",
+            desc: "식약처 위생등급(매우우수 등)을 획득하여 배달앱 및 포털에 안심 매장으로 인증받으세요.",
+            url: "https://www.foodsafetykorea.go.kr",
+            badge: "영업자 지원"
+          },
+          {
+            title: "소비기한 표시제 가이드라인 및 상담 (1577-1255)",
+            desc: "식품 라벨 표시기준 및 영업자 준수의무 규정을 원클릭으로 확인하세요.",
+            url: "https://www.mfds.go.kr",
+            badge: "종합 상담"
+          }
+        ];
+      } else {
+        // general consumer
+        descText = "스마트하고 안전한 소비를 위해 식약처는 위해식품 실시간 회수 알림, 해외직구 유해요소 차단 시스템, 24시간 불량식품 신고 1399를 운영합니다.";
+        recommendations = [
+          {
+            title: "해외직구식품 '올(ALL)바로' 유해식품 검색",
+            desc: "직구 영양제나 다이어트 제품에 유해 마약 성분 등이 포함되어 통관 차단되었는지 바로 확인하세요.",
+            url: "https://www.foodsafetykorea.go.kr",
+            badge: "직구 필수"
+          },
+          {
+            title: "불량식품 & 허위과대광고 신고 (국번없이 1399)",
+            desc: "배달음식 이물 발견이나 SNS 부당광고 피해 시 사진을 첨부하여 스마트폰으로 바로 신고하세요.",
+            url: "https://www.epeople.go.kr",
+            badge: "신고센터"
+          }
+        ];
+      }
+
+      // Add goal specific action
+      if (goal === 'report') {
+        recommendations.unshift({
+          title: "🚨 긴급 불량식품 및 부작용 신고 센터 (1399)",
+          desc: "소비자 피해 발생 시 즉각적인 현장 점검과 행정 조치가 이루어집니다.",
+          url: "https://www.epeople.go.kr",
+          badge: "긴급 신고"
+        });
+      }
+
+      resultDesc.innerText = descText;
+
+      let actionsHtml = "";
+      recommendations.forEach(item => {
+        actionsHtml += `
+          <div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-emerald-400 transition">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">${item.badge}</span>
+                <h4 class="font-bold text-sm text-slate-800">${item.title}</h4>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">${item.desc}</p>
+            </div>
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="shrink-0 inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-sm">
+              서비스 바로가기 <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        `;
+      });
+      resultActions.innerHTML = actionsHtml;
+      lucide.createIcons();
+    }
+
+    function resetSurvey() {
+      goToSurveyStep(1);
+    }
+
+    // --- Checklist Logic ---
+    function updateChecklist() {
+      const checkedBoxes = document.querySelectorAll('.chk-box:checked');
+      const counter = document.getElementById('checked-counter');
+      const summaryBox = document.getElementById('checklist-summary-box');
+      const linksContainer = document.getElementById('checklist-result-links');
+
+      counter.innerText = `${checkedBoxes.length}개 선택됨`;
+
+      if (checkedBoxes.length === 0) {
+        summaryBox.classList.add('hidden');
+        return;
+      }
+
+      summaryBox.classList.remove('hidden');
+      let html = "";
+      checkedBoxes.forEach(chk => {
+        const portal = chk.getAttribute('data-portal');
+        const url = chk.getAttribute('data-url');
+        const desc = chk.getAttribute('data-desc');
+
+        html += `
+          <div class="bg-white p-3 rounded-xl border border-emerald-100 flex items-center justify-between gap-3 shadow-xs">
+            <div>
+              <span class="font-bold text-xs text-slate-800">${portal}</span>
+              <p class="text-[11px] text-slate-500">${desc}</p>
+            </div>
+            <a href="${url}" target="_blank" rel="noopener noreferrer" class="shrink-0 px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-lg transition inline-flex items-center gap-1">
+              이동 <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+          </div>
+        `;
+      });
+      linksContainer.innerHTML = html;
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
